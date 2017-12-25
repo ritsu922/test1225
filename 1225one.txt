@@ -1,0 +1,135 @@
+[
+    {
+        "id": "1907d65d.4b427a",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "261ab63a.e28d5a",
+        "type": "rpi-gpio out",
+        "z": "1907d65d.4b427a",
+        "name": "Green LED",
+        "pin": "3",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 630,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "eab6d17a.d8d9a",
+        "type": "switch",
+        "z": "1907d65d.4b427a",
+        "name": "input",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 190,
+        "y": 460,
+        "wires": [
+            [
+                "7ad838e4.88f4c8"
+            ],
+            [
+                "b2cd9ff1.389be"
+            ]
+        ]
+    },
+    {
+        "id": "7ad838e4.88f4c8",
+        "type": "change",
+        "z": "1907d65d.4b427a",
+        "name": "change to 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 384,
+        "y": 397,
+        "wires": [
+            [
+                "261ab63a.e28d5a"
+            ]
+        ]
+    },
+    {
+        "id": "b2cd9ff1.389be",
+        "type": "change",
+        "z": "1907d65d.4b427a",
+        "name": "change to 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 460,
+        "wires": [
+            [
+                "261ab63a.e28d5a"
+            ]
+        ]
+    },
+    {
+        "id": "90cabb2f.5fabc8",
+        "type": "rpi-gpio in",
+        "z": "1907d65d.4b427a",
+        "name": "Button",
+        "pin": "5",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 50,
+        "y": 420,
+        "wires": [
+            [
+                "eab6d17a.d8d9a",
+                "4bc42d0a.04e404"
+            ]
+        ]
+    },
+    {
+        "id": "4bc42d0a.04e404",
+        "type": "debug",
+        "z": "1907d65d.4b427a",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 586.8984375,
+        "y": 285.4140625,
+        "wires": []
+    }
+]
